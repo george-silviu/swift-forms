@@ -33,7 +33,6 @@ const { pool } = require("../../services/postgres");
  *                     description: User name
  */
 userRouter.get("/", async (req, res) => {
-  await pool.query("SELECT NOW()");
   res.status(200).json([
     { id: 1, name: "John Doe" },
     { id: 2, name: "Jane Doe" },
