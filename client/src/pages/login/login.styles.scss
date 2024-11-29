@@ -8,10 +8,13 @@
   .login-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     background-color: white;
     border: 1px solid black;
     padding: 20px;
     border-radius: 5px;
+    height: 500px;
+    width: 350px;
 
     .form-input {
       display: flex;

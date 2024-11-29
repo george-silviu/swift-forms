@@ -1,0 +1,23 @@
+.register-page {
+  background-color: #fff0e5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .register-form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 500px;
+    width: 350px;
+
+    .form-input {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
