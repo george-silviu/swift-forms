@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "./login.styles.scss";
 
@@ -9,6 +9,8 @@ const defaultFormFields = {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -21,6 +23,8 @@ const Login = () => {
     event.preventDefault();
 
     console.log(formFields);
+
+    navigate("/dashboard");
     try {
       //perform request to login endpoint
     } catch (error) {}
