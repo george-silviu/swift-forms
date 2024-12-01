@@ -33,9 +33,7 @@ const Login = () => {
   return (
     <section className="login-container">
       <form className="login-form">
-        <header className="login-form-header">
-          <h1>Log in to SwiftForms</h1>
-        </header>
+        <h1>Log in to SwiftForms</h1>
 
         <div>
           <div className="form-input">

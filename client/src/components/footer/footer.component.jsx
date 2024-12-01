@@ -3,7 +3,7 @@ import "./footer.styles.scss";
 const Footer = () => {
   return (
     <footer>
-      <h1>Footer</h1>
+      <p>Copyright 2024 George-Silviu Costache</p>
     </footer>
   );
 };

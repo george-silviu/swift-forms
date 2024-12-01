@@ -2,5 +2,14 @@ menu {
   grid-area: menu;
   background-color: white;
   border: 1px solid black;
-  margin: 0;
+  margin: 5px;
+  border-radius: 10px;
+
+  .menu-items {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+  }
 }
