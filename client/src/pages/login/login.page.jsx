@@ -22,34 +22,42 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(formFields);
+    setTimeout(() => {
+      console.log(formFields);
 
-    navigate("/dashboard");
-    try {
-      //perform request to login endpoint
-    } catch (error) {}
+      navigate("/dashboard");
+      try {
+        //perform request to login endpoint
+      } catch (error) {}
+    }, 2000);
   };
 
   return (
-    <section className="login-container">
+    <section className="login-page">
       <form className="login-form">
-        <h1>Log in to SwiftForms</h1>
+        <img alt="form-logo" src="/logo.png" className="logo" />
+        <h1 className="form-header">Welcome</h1>
+        <p className="form-subheader">
+          Enter your email and password to sign in{" "}
+        </p>
 
-        <div>
+        <div className="form-inputs">
           <div className="form-input">
-            <label htmlFor="email">Email </label>
+            <label htmlFor="email">Email*</label>
             <input
+              className=""
               id="email"
               required
               type="text"
               name="email"
               value={email}
               onChange={handleChange}
+              placeholder="example@email.com"
             />
           </div>
 
           <div className="form-input">
-            <label htmlFor="password"> Password </label>
+            <label htmlFor="password">Password*</label>
             <input
               id="password"
               required
@@ -57,15 +65,26 @@ const Login = () => {
               name="password"
               value={password}
               onChange={handleChange}
+              placeholder="Password"
             />
           </div>
+
+          <div className="form-checkbox">
+            <input id="remember-me" type="checkbox" />
+            <label htmlFor="remember-me">Remember me</label>
+          </div>
+
+          <button className="signin-button" onClick={handleSubmit}>
+            Sign in
+          </button>
         </div>
 
-        <button className="button" onClick={handleSubmit}>
-          Login
-        </button>
-
-        <NavLink to="/register"> Register here</NavLink>
+        <div className="register-info">
+          Don't have an account?{" "}
+          <NavLink className="register-link" to="/sign-up">
+            Register here
+          </NavLink>
+        </div>
       </form>
     </section>
   );

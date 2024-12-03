@@ -9,8 +9,8 @@ import Dashboard from "./pages/dashboard/dashboard.page.jsx";
 function App() {
   return (
     <Routes>
-      <Route index element={<Login />} />
-      <Route path="register" element={<Register />} />
+      <Route path="sign-in" element={<Login />} />
+      <Route path="sign-up" element={<Register />} />
 
       <Route element={<Layout />}>
         <Route path="dashboard" element={<Dashboard />} />

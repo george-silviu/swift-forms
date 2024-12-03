@@ -1,28 +1,107 @@
-.login-container {
-  background-color: #fff0e5;
+.login-page {
+  //set the page dimensions
+  height: 100vh;
+
+  //position the form container
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+
+  //add the cover image
+  background-image: url(/sing-up-bg.png);
+  background-size: cover;
+  background-position: center;
 
   .login-form {
+    //set up responsive dimensions
+    width: 90%;
+    max-width: 450px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+
+    //arrange the elements within
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    background-color: white;
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: 5px;
-    height: 500px;
-    width: 350px;
+    align-items: center;
 
-    .form-input {
-      display: flex;
-      flex-direction: column;
+    background-color: rgba(241, 250, 238, 0.9);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+    .logo {
+      max-width: 50%;
+      height: auto;
     }
 
-    .button {
-      margin-top: 10px;
+    .form-header {
+      font-size: 40px;
+      margin-bottom: 5px;
+    }
+
+    .form-subheader {
+      font-size: 16px;
+    }
+
+    .form-inputs {
+      width: 70%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-input {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          margin-top: 5px;
+          padding: 15px 20px;
+          border: 1px solid #1d3557;
+          border-radius: 5px;
+          font-size: 17px;
+        }
+      }
+
+      .form-checkbox {
+        display: flex;
+        align-items: center;
+
+        input {
+          width: 17px;
+          height: 17px;
+          cursor: pointer;
+        }
+
+        label {
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .signin-button {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 7px;
+        cursor: pointer;
+        border: 1px solid #457b9d;
+        border-radius: 5px;
+        background-color: #a8dadc;
+        transition: 300ms;
+
+        &:hover {
+          color: rgba(255, 255, 255);
+          background-color: #1d3557;
+        }
+      }
+    }
+
+    .register-info {
+      margin: 40px 0 10px;
+
+      .register-link:hover {
+        color: red;
+      }
     }
   }
 }
