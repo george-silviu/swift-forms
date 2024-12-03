@@ -71,7 +71,7 @@ const Register = () => {
           Register
         </button>
 
-        <NavLink to="/">Log in here</NavLink>
+        <NavLink to="/sign-in">Log in here</NavLink>
       </form>
     </section>
   );

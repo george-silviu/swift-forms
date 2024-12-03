@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import "./login.styles.scss";
@@ -6,30 +6,35 @@ import "./login.styles.scss";
 const defaultFormFields = {
   email: "",
   password: "",
+  rememberMe: false,
 };
 
 const Login = () => {
   const navigate = useNavigate();
 
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
+  const { email, password, rememberMe } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log({ name, value });
     setFormFields({ ...formFields, [name]: value });
   };
 
+  useEffect(() => {
+    console.log(formFields);
+  }, formFields.rememberMe);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(formFields);
 
-    setTimeout(() => {
-      console.log(formFields);
-
-      navigate("/dashboard");
-      try {
-        //perform request to login endpoint
-      } catch (error) {}
-    }, 2000);
+    // setTimeout(() => {
+    //   navigate("/dashboard");
+    //   try {
+    //     //perform request to login endpoint
+    //   } catch (error) {}
+    // }, 2000);
   };
 
   return (
@@ -70,7 +75,15 @@ const Login = () => {
           </div>
 
           <div className="form-checkbox">
-            <input id="remember-me" type="checkbox" />
+            <input
+              id="remember-me"
+              name="rememberMe"
+              type="checkbox"
+              value={rememberMe}
+              onChange={(event) => {
+                console.log(event.target);
+              }}
+            />
             <label htmlFor="remember-me">Remember me</label>
           </div>
 
