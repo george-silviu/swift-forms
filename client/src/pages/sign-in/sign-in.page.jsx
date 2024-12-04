@@ -10,26 +10,57 @@ const defaultFormFields = {
 };
 
 const SignIn = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
+  const [formFieldsErrors, setFormFieldsErrors] = useState({
+    username: "",
+    password: "",
+  });
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, password, rememberMe } = formFields;
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log({ name, value });
-    setFormFields({ ...formFields, [name]: value });
-  };
+    //destructure event.target properties
+    const { name, value, checked } = event.target;
 
-  const validateFields = () => {
-    if (!username) {
-    } else if (!password) {
+    //change the state
+    if (name === "rememberMe") {
+      setFormFields({ ...formFields, [name]: checked });
+    } else {
+      setFormFields({ ...formFields, [name]: value });
+    }
+
+    //check in inputs are valid
+    if (name === "username" && !value) {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        [name]: "Username must be provided.",
+      });
+    } else if (name === "password" && !value) {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        [name]: "Password must be provided.",
+      });
+    } else {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        [name]: "",
+      });
     }
   };
 
   const handleSubmit = async (event) => {
+    //prevend the default behaviour of the browser
     event.preventDefault();
-    console.log(formFields);
+
+    if (!formFields.username && !formFields.password) {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        username: "Username must be provided.",
+        password: "Password must be provided.",
+      });
+      return;
+    }
 
     // setTimeout(() => {
     //   navigate("/dashboard");
@@ -50,17 +81,21 @@ const SignIn = () => {
 
         <div className="form-inputs">
           <div className="form-input">
-            <label htmlFor="email">Username*</label>
+            <label htmlFor="username">Username*</label>
             <input
               className=""
-              id="email"
+              id="username"
               required
               type="text"
-              name="email"
+              name="username"
               value={username}
               onChange={handleChange}
               placeholder="Username"
+              style={{ borderColor: formFieldsErrors.username && "red" }}
             />
+            {formFieldsErrors.username && (
+              <p className="error-message">{formFieldsErrors.username}</p>
+            )}
           </div>
 
           <div className="form-input">
@@ -73,7 +108,11 @@ const SignIn = () => {
               value={password}
               onChange={handleChange}
               placeholder="Password"
+              style={{ borderColor: formFieldsErrors.password && "red" }}
             />
+            {formFieldsErrors.password && (
+              <p className="error-message">{formFieldsErrors.password}</p>
+            )}
           </div>
 
           <div className="form-checkbox">
@@ -81,10 +120,8 @@ const SignIn = () => {
               id="remember-me"
               name="rememberMe"
               type="checkbox"
-              value={rememberMe}
-              onChange={(event) => {
-                console.log(event.target);
-              }}
+              checked={rememberMe}
+              onChange={handleChange}
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>
