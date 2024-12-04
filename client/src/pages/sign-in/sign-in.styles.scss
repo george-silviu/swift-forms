@@ -9,7 +9,7 @@
 
   //add the cover image
   background-image: url(/sing-up-bg.png);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 
   .login-form {
@@ -26,16 +26,15 @@
     align-items: center;
 
     background-color: rgba(241, 250, 238, 0.9);
-
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 
     .logo {
-      max-width: 50%;
+      max-width: 40%;
       height: auto;
     }
 
     .form-header {
-      font-size: 40px;
+      font-size: 30px;
       margin-bottom: 5px;
     }
 
@@ -48,7 +47,7 @@
       margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
 
       .form-input {
         display: flex;

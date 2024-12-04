@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import "./login.styles.scss";
+import "./sign-in.styles.scss";
 
 const defaultFormFields = {
-  email: "",
+  username: "",
   password: "",
   rememberMe: false,
 };
 
-const Login = () => {
+const SignIn = () => {
   const navigate = useNavigate();
 
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password, rememberMe } = formFields;
+  const { username, password, rememberMe } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,9 +21,11 @@ const Login = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  useEffect(() => {
-    console.log(formFields);
-  }, formFields.rememberMe);
+  const validateFields = () => {
+    if (!username) {
+    } else if (!password) {
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +41,7 @@ const Login = () => {
 
   return (
     <section className="login-page">
-      <form className="login-form">
+      <form className="login-form animate__animated animate__fadeInLeft">
         <img alt="form-logo" src="/logo.png" className="logo" />
         <h1 className="form-header">Welcome</h1>
         <p className="form-subheader">
@@ -48,16 +50,16 @@ const Login = () => {
 
         <div className="form-inputs">
           <div className="form-input">
-            <label htmlFor="email">Email*</label>
+            <label htmlFor="email">Username*</label>
             <input
               className=""
               id="email"
               required
               type="text"
               name="email"
-              value={email}
+              value={username}
               onChange={handleChange}
-              placeholder="example@email.com"
+              placeholder="Username"
             />
           </div>
 
@@ -95,7 +97,7 @@ const Login = () => {
         <div className="register-info">
           Don't have an account?{" "}
           <NavLink className="register-link" to="/sign-up">
-            Register here
+            Sign up here
           </NavLink>
         </div>
       </form>
@@ -103,4 +105,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;

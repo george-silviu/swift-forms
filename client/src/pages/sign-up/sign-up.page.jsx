@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import "./register.styles.scss";
+import "./sign-up.styles.scss";
 
 const defaultFormFields = {
+  username: "",
   email: "",
   password: "",
   repeatPassword: "",
 };
 
-const Register = () => {
+const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password, repeatPassword } = formFields;
 
@@ -26,28 +27,43 @@ const Register = () => {
 
   return (
     <section className="register-page">
-      <form className="register-form">
-        <h1>Register to SwiftForms</h1>
-
-        <div>
+      <form className="register-form animate__animated animate__fadeInRight">
+        <img className="logo" src="/logo.png"></img>
+        <h1 className="form-header">Register to SwiftForms</h1>
+        <p className="form-subheader">
+          Insert your details to create a new account
+        </p>
+        <div className="form-inputs">
           <div className="form-input">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">Username*</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Username"
+            />
+          </div>
+
+          <div className="form-input">
+            <label htmlFor="email">Email*</label>
             <input
               type="text"
               id="email"
               name="email"
               required
+              placeholder="example@email.com"
               value={email}
               onChange={handleChange}
             />
           </div>
 
           <div className="form-input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password*</label>
             <input
               type="password"
               id="password"
               name="password"
+              placeholder="Password"
               required
               value={password}
               onChange={handleChange}
@@ -55,26 +71,32 @@ const Register = () => {
           </div>
 
           <div className="form-input">
-            <label htmlFor="repeatPassword">Repeat password</label>
+            <label htmlFor="repeatPassword">Repeat password*</label>
             <input
               type="password"
               id="repeatPassword"
               name="repeatPassword"
+              placeholder="Repeat password"
               required
               value={repeatPassword}
               onChange={handleChange}
             />
           </div>
+
+          <button className="signup-button" onClick={handleRegister}>
+            Sign up
+          </button>
         </div>
 
-        <button className="button" onClick={handleRegister}>
-          Register
-        </button>
-
-        <NavLink to="/sign-in">Log in here</NavLink>
+        <div className="signin-info">
+          Already have an accout?{" "}
+          <NavLink className="signin-link" to="/sign-in">
+            Sign in here
+          </NavLink>
+        </div>
       </form>
     </section>
   );
 };
 
-export default Register;
+export default SignUp;
