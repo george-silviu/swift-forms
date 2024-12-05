@@ -10,13 +10,14 @@ const defaultFormFields = {
 };
 
 const SignIn = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [formFieldsErrors, setFormFieldsErrors] = useState({
     username: "",
     password: "",
   });
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const [loading, setLoading] = useState(false);
   const { username, password, rememberMe } = formFields;
 
   const handleChange = (event) => {
@@ -60,15 +61,41 @@ const SignIn = () => {
         password: "Password must be provided.",
       });
       return;
+    } else if (!formFields.username) {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        username: "Username must be provided.",
+      });
+    } else if (!formFields.password) {
+      setFormFieldsErrors({
+        ...formFieldsErrors,
+        password: "Password must be provided.",
+      });
     }
 
-    // setTimeout(() => {
-    //   navigate("/dashboard");
-    //   try {
-    //     //perform request to login endpoint
-    //   } catch (error) {}
-    // }, 2000);
+    function asyncCall() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      });
+    }
+
+    setLoading(true);
+    try {
+      const res = await asyncCall();
+      navigate("/dashboard");
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    console.log(loading);
+  }, [loading]);
 
   return (
     <section className="login-page">
@@ -126,8 +153,12 @@ const SignIn = () => {
             <label htmlFor="remember-me">Remember me</label>
           </div>
 
-          <button className="signin-button" onClick={handleSubmit}>
-            Sign in
+          <button
+            className="signin-button"
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            {loading ? <div className="spinner"></div> : "Sign in"}
           </button>
         </div>
 
