@@ -1,8 +1,12 @@
 .grid-container {
+  background-color: #fdfdfd;
+  overflow-y: hidden;
+
   height: 100vh;
   display: grid;
   gap: 10px;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 60px 1fr 50px;
+
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 80px 1fr 50px;
   grid-template-areas: "menu header" "menu main" "menu footer";
 }

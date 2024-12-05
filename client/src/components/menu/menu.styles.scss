@@ -1,12 +1,17 @@
 menu {
   grid-area: menu;
-  background-color: white;
-  border: 1px solid black;
-  margin: 5px;
+  // background-color: #a8dadc;
+  margin: 10px;
   border-radius: 10px;
+
+  .logo {
+    width: 90%;
+    margin-top: 15px;
+  }
 
   .menu-items {
     margin-top: 50px;
+
     display: flex;
     flex-direction: column;
 

@@ -17,7 +17,7 @@ const menuItems = [
 const Menu = () => {
   return (
     <menu>
-      <h1>SwiftForms</h1>
+      <img className="logo" src="logo2.png" />
 
       <section className="menu-items">
         {menuItems.map((item, index) => (
