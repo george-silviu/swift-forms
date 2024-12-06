@@ -16,5 +16,39 @@ menu {
     flex-direction: column;
 
     gap: 15px;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 10px;
+      padding: 10px;
+      color: black;
+
+      &:hover {
+        background-color: #457b9d;
+        color: white;
+        transition: 0.3s ease;
+
+        .icon-container {
+          color: red;
+        }
+      }
+
+      .icon-container {
+        display: flex;
+        border-radius: 5px;
+        padding: 3px;
+      }
+    }
+
+    .active {
+      color: white;
+      background-color: #1d3557;
+
+      .icon-container {
+        color: red;
+      }
+    }
   }
 }

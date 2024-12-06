@@ -9,7 +9,7 @@ const BreadCrumb = () => {
     <ul className="breadcrumb">
       <li>
         <NavLink to="/dashboard">
-          <FaHome size="25px" />
+          <FaHome size="20px" />
         </NavLink>
       </li>
 

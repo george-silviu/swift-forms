@@ -12,12 +12,8 @@ const Header = () => {
       <BreadCrumb />
 
       <div className="header-icons">
-        <div className="icon">
-          <IoNotificationsCircle />
-        </div>
-        <div className="icon">
-          <FaUserCircle size="25px" />
-        </div>
+        <IoNotificationsCircle className="icon" size="29px" />
+        <FaUserCircle className="icon" size="25px" />
       </div>
     </header>
   );

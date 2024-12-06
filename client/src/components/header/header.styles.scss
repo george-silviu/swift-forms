@@ -1,5 +1,6 @@
 header {
-  background-color: #a8dadc;
+  // background-color: #a8dadc;
+  box-shadow: 2px 2px 7px;
 
   display: flex;
   align-items: center;
@@ -9,12 +10,17 @@ header {
 
   .header-icons {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 5px;
     margin-right: 20px;
 
     .icon {
+      color: #1d3557;
+      transition: 0.5s;
+
       &:hover {
         cursor: pointer;
+        color: #e63946;
       }
     }
   }
