@@ -6,6 +6,7 @@ import SignUp from "./pages/sign-up/sign-up.page";
 import Layout from "./layout/layout.jsx";
 import Dashboard from "./pages/dashboard/dashboard.page.jsx";
 import RequestsPage from "./pages/requests/requests.page.jsx";
+import RequestPage from "./pages/request/request.page.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="leave-requests" element={<RequestsPage />} />
+        <Route path="leave-requests/:requestId" element={<RequestPage />} />
       </Route>
     </Routes>
   );

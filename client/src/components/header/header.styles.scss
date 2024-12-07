@@ -1,6 +1,6 @@
 header {
   // background-color: #a8dadc;
-  box-shadow: 2px 2px 7px;
+  // box-shadow: 2px 2px 7px;
 
   display: flex;
   align-items: center;
@@ -15,6 +15,17 @@ header {
     margin-right: 20px;
 
     .icon {
+      color: #1d3557;
+      transition: 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        color: #e63946;
+      }
+    }
+
+    .user-icon {
+      position: relative;
       color: #1d3557;
       transition: 0.5s;
 

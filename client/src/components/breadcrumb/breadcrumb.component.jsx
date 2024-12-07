@@ -1,21 +1,28 @@
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { FaHome } from "react-icons/fa";
 
 import "./breadcrumb.styles.scss";
 
 const BreadCrumb = () => {
+  const location = useLocation();
+
   return (
     <ul className="breadcrumb">
       <li>
-        <NavLink to="/dashboard">
+        <Link to="/dashboard">
           <FaHome size="20px" />
-        </NavLink>
+        </Link>
       </li>
 
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
+      {location.pathname.includes("/dashboard") && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
+
+      {location.pathname.includes("/leave-requests") && <li>Leave requests</li>}
+      {location.pathname.includes("/leave-requests/") && <li>Request 22</li>}
     </ul>
   );
 };
